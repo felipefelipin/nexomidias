@@ -1,16 +1,10 @@
 .scroll-reveal-enter {
-  animation: scrollRevealUp 0.7s ease both;
+  animation: scrollRevealFade 0.7s ease forwards;
 }
 
-@keyframes scrollRevealUp {
-  from {
-    opacity: 0;
-    transform: translateY(36px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+@keyframes scrollRevealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

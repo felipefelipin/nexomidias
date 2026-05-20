@@ -14,9 +14,9 @@ function ScrollReveal({ children, delay = 0 }: Props) {
     const el = ref.current
     if (!el) return
 
-    // Elementos próximos ou dentro da viewport no carregamento ficam visíveis sem animação
     const rect = el.getBoundingClientRect()
-    if (rect.top < window.innerHeight + 100) return
+    // Buffer generoso para garantir que seções próximas ao fold não animem no load
+    if (rect.top < window.innerHeight * 1.5) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -25,7 +25,7 @@ function ScrollReveal({ children, delay = 0 }: Props) {
           observer.unobserve(el)
         }
       },
-      { threshold: 0 }
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' }
     )
 
     observer.observe(el)

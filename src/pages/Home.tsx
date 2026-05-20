@@ -24,9 +24,7 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <ScrollReveal>
-        <WhyChoose />
-      </ScrollReveal>
+      <WhyChoose />
       <ScrollReveal delay={100}>
         <WhyLicense />
       </ScrollReveal>

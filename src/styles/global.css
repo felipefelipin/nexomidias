@@ -846,6 +846,7 @@ header .header-actions .profile-wrapper .profile-pill [class*="profile-avatar"] 
 
   filter: blur(38px);
 }
-body{
+body {
   font-family: "Inter", sans-serif;
+  background: #050816;
 }
