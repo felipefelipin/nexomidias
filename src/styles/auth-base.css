@@ -1,0 +1,52 @@
+/* ===== AUTH BASE — DOM MEDIA ===== */
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #0b0b0b;
+}
+
+/* LADO ESQUERDO */
+.auth-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    800px 400px at top center,
+    #1a1a1a,
+    #000000
+  );
+}
+
+.auth-brand {
+  text-align: center;
+  color: #ffffff;
+}
+
+.auth-brand h1 {
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.auth-brand p {
+  color: #b5b5b5;
+  font-size: 14px;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* LADO DIREITO */
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+/* CARD */
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+}

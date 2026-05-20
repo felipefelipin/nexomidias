@@ -1,0 +1,314 @@
+/* ===========================
+   CONFIGURAÇÕES - NEXO SKIN
+   (DomMedia layout + Nexo visual)
+   =========================== */
+
+:root{
+  --nx-bg-0: #060A13;
+  --nx-bg-1: #070C18;
+
+  --nx-text: rgba(255,255,255,.92);
+  --nx-muted: rgba(255,255,255,.70);
+  --nx-soft: rgba(255,255,255,.58);
+
+  --nx-stroke: rgba(255,255,255,.10);
+  --nx-stroke-2: rgba(255,255,255,.08);
+
+  --nx-surface: rgba(255,255,255,.04);
+  --nx-surface-2: rgba(255,255,255,.06);
+
+  --nx-accent: #19B5FF;
+  --nx-accent-2: #22D3EE;
+
+  --nx-radius-lg: 22px;
+  --nx-radius-md: 16px;
+
+  --nx-shadow: 0 30px 90px rgba(0,0,0,.55);
+  --nx-shadow-soft: 0 18px 55px rgba(0,0,0,.45);
+
+  --nx-max: 980px;
+
+  /* ✅ altura do header (ajuste se o seu header for diferente) */
+  --header-h: 80px;
+}
+
+/* Page */
+.nx-settings{
+  min-height: 100vh;
+
+  /* ✅ Espaço profissional do topo considerando header fixo */
+  padding-top: calc(var(--header-h) + clamp(40px, 5vw, 72px));
+  padding-bottom: clamp(40px, 5vw, 80px);
+  padding-inline: 18px;
+
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(25,181,255,.14), transparent 60%),
+    radial-gradient(900px 650px at 85% 25%, rgba(34,211,238,.10), transparent 60%),
+    linear-gradient(180deg, var(--nx-bg-0), var(--nx-bg-1));
+  color: var(--nx-text);
+
+  display: grid;
+  place-items: start center;
+
+  overflow: hidden;
+}
+
+/* Container central */
+.nx-settings__wrap{
+  width: min(720px, 100%);
+}
+
+/* Title (central, clean) */
+.nx-settings__title{
+  margin: 0 0 6px;
+  text-align: center;
+  font-family: "Sora", "Outfit", system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 3.2vw, 40px);
+  letter-spacing: -0.02em;
+}
+
+.nx-settings__subtitle{
+  margin: 0 0 clamp(18px, 2.2vw, 28px);
+  text-align: center;
+  color: var(--nx-soft);
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+/* Card principal */
+.nx-settings__card{
+  border-radius: var(--nx-radius-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid var(--nx-stroke-2);
+  box-shadow: var(--nx-shadow);
+  padding: clamp(18px, 2.6vw, 28px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho sutil dentro do card */
+.nx-settings__card::before{
+  content:"";
+  position:absolute;
+  inset: -30%;
+  background:
+    radial-gradient(700px 480px at 30% 25%, rgba(25,181,255,.16), transparent 60%),
+    radial-gradient(600px 420px at 80% 70%, rgba(34,211,238,.10), transparent 60%);
+  opacity: .9;
+  filter: blur(2px);
+  pointer-events:none;
+  mix-blend-mode: screen;
+}
+
+/* Conteúdo do card acima do brilho */
+.nx-settings__card > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Sections */
+.nx-settings__section{
+  padding: 10px 2px 6px;
+}
+
+.nx-settings__sectionTitle{
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,.90);
+}
+
+/* Divider entre seções */
+.nx-settings__divider{
+  height: 1px;
+  margin: 18px 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  opacity: .85;
+}
+
+/* Form layout */
+.nx-settings__form{
+  display: grid;
+  gap: 14px;
+}
+
+/* Field */
+.nx-field{
+  display: grid;
+  gap: 6px;
+}
+
+.nx-field__label{
+  font-size: 12.5px;
+  color: var(--nx-soft);
+}
+
+/* Input wrapper para ícone (olho) */
+.nx-field__control{
+  position: relative;
+}
+
+/* Input */
+.nx-input{
+  width: 100%;
+  border: none;
+  outline: none;
+
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.10);
+
+  color: var(--nx-text);
+  border-radius: 14px;
+
+  padding: 12px 44px 12px 12px;
+  font-size: 14.8px;
+  line-height: 1.4;
+
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.nx-input::placeholder{
+  color: rgba(255,255,255,.35);
+}
+
+/* Focus premium */
+.nx-input:focus{
+  border-color: rgba(25,181,255,.35);
+  box-shadow: 0 0 0 4px rgba(25,181,255,.12);
+  background: rgba(255,255,255,.04);
+}
+
+/* Ícone de olho */
+.nx-field__iconBtn{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(10px);
+
+  display: grid;
+  place-items: center;
+
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.nx-field__iconBtn:hover{
+  transform: translateY(-50%) scale(1.03);
+  border-color: rgba(25,181,255,.22);
+}
+
+/* Actions */
+.nx-actions{
+  margin-top: 8px;
+}
+
+/* ===========================
+   ✅ BOTÃO AZUL COM EFEITOS PREMIUM
+   (lift + glow + light sweep)
+   =========================== */
+.nx-btn{
+  position: relative;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+
+  padding: 13px 16px;
+  border-radius: 14px;
+
+  font-weight: 800;
+  font-size: 14.8px;
+  letter-spacing: .02em;
+
+  color: rgba(0,0,0,.86);
+  background: linear-gradient(90deg, var(--nx-accent), var(--nx-accent-2));
+
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.35),
+    0 0 0 1px rgba(255,255,255,.06);
+
+  transition:
+    transform 220ms cubic-bezier(.22,1,.36,1),
+    box-shadow 220ms cubic-bezier(.22,1,.36,1),
+    filter 180ms ease;
+
+  overflow: hidden;
+}
+
+/* Light sweep */
+.nx-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255,255,255,.25) 50%,
+    transparent 60%
+  );
+
+  transform: translateX(-120%);
+  opacity: 0;
+  transition: transform 600ms ease, opacity 200ms ease;
+  pointer-events:none;
+}
+
+/* Hover premium (somente desktop) */
+@media (hover:hover) and (pointer:fine){
+  .nx-btn:hover{
+    transform: translateY(-3px);
+    filter: saturate(1.05) brightness(1.03);
+
+    box-shadow:
+      0 24px 70px rgba(0,0,0,.45),
+      0 0 0 1px rgba(255,255,255,.08),
+      0 0 60px rgba(25,181,255,.18);
+  }
+
+  .nx-btn:hover::after{
+    transform: translateX(120%);
+    opacity: 1;
+  }
+}
+
+/* Clique */
+.nx-btn:active{
+  transform: translateY(-1px) scale(.98);
+}
+
+/* secondary button (se quiser) */
+.nx-btn--ghost{
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.88);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: var(--nx-shadow-soft);
+}
+
+/* Responsivo */
+@media (max-width: 520px){
+  .nx-settings__card{
+    padding: 16px;
+  }
+  .nx-input{
+    font-size: 14.3px;
+  }
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce){
+  .nx-btn,
+  .nx-btn::after{
+    transition: none !important;
+  }
+}

@@ -1,0 +1,851 @@
+/* =====================================================
+   RESET GLOBAL — ESTÁVEL PARA ANIMAÇÕES
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  /* FORÇA SCROLLBAR SEMPRE — elimina “pulo” lateral */
+  overflow-y: scroll;
+}
+
+body {
+  width: 100%;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #ffffff;
+  color: var(--dm-text-dark);
+  line-height: 1.6;
+
+  /* CRÍTICO — clip em vez de hidden evita bug de scroll no iOS Safari com transform */
+  overflow-x: clip;
+}
+
+/* =====================================================
+   VARIÁVEIS — DOM MEDIA
+===================================================== */
+:root {
+  --dm-bg-dark: radial-gradient(
+    1200px 600px at top center,
+    #1a1a1a 0%,
+    #0e0e0e 45%,
+    #000000 100%
+  );
+
+  --dm-bg-solid-dark: #0e0e0e;
+  --dm-bg-header: #000000;
+
+  --dm-bg-light: #ffffff;
+  --dm-bg-light-soft: #f7f7f7;
+
+  --dm-text-primary: #f5f5f5;
+  --dm-text-secondary: #b5b5b5;
+  --dm-text-dark: #111111;
+  --dm-text-muted-dark: #6b7280;
+
+  --dm-primary: #e11d2e;
+  --dm-primary-hover: #c81a28;
+
+  --dm-accent: #35d0d6;
+
+  --dm-border-dark: rgba(255, 255, 255, 0.12);
+  --dm-border-light: #e5e7eb;
+
+  --dm-shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --dm-shadow-card: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================================
+   ESTRUTURA PRINCIPAL
+===================================================== */
+main {
+  /* ✅ IMPORTANTE:
+     O HERO já compensa o header (margin-top:-78 / padding-top:156),
+     então o main NÃO pode empurrar mais 78px.
+  */
+  padding-top: 0;
+
+  /* ✅ não imponha fundo branco no layout inteiro */
+  background: transparent;
+
+  /* ✅ mantém layout estável sem cortar o Hero/mosaico */
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* =====================================================
+   ELEMENTOS BASE
+===================================================== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* =====================================================
+   CONTAINER PADRÃO
+===================================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* =====================================================
+   TIPOGRAFIA
+===================================================== */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+
+p {
+  font-size: 0.95rem;
+}
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+.btn-primary {
+  background: var(--dm-primary);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: var(--dm-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 1px solid var(--dm-border-dark);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: var(--dm-shadow-card);
+  border: 1px solid var(--dm-border-light);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  background: linear-gradient(
+    135deg,
+    #0b0b0b 0%,
+    #111111 40%,
+    #050505 100%
+  );
+  color: var(--dm-text-secondary);
+}
+
+/* =====================================================
+   NEXO MIDIAS — VISUAL OVERRIDE
+   (NÃO ALTERA ESTRUTURA)
+===================================================== */
+
+:root {
+
+  /* BACKGROUNDS */
+  --dm-bg-dark: radial-gradient(
+    1200px 600px at top center,
+    #0c122b 0%,
+    #050816 45%,
+    #02030d 100%
+  );
+
+  --dm-bg-solid-dark: #050816;
+  --dm-bg-header: #02030d;
+
+  --dm-bg-light: #050816;
+  --dm-bg-light-soft: #0b0f2a;
+
+  /* TEXTOS */
+  --dm-text-primary: #e6f9ff;
+  --dm-text-secondary: #7ddfff;
+  --dm-text-dark: #e6f9ff;
+  --dm-text-muted-dark: #7a9fb0;
+
+  /* BOTÕES */
+  --dm-primary: #00C2FF;
+  --dm-primary-hover: #009fd1;
+
+  --dm-accent: #007BFF;
+
+  /* BORDAS */
+  --dm-border-dark: rgba(0, 194, 255, 0.15);
+  --dm-border-light: rgba(0, 194, 255, 0.08);
+
+  /* SOMBRAS */
+  --dm-shadow-soft: 0 20px 60px rgba(0, 194, 255, 0.15);
+  --dm-shadow-card: 0 6px 20px rgba(0, 194, 255, 0.08);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #00C2FF, #007BFF);
+  color: #ffffff;
+  box-shadow: 0 0 0 rgba(0, 194, 255, 0);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #00C2FF, #007BFF);
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.5);
+}
+
+.btn-outline {
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  color: #00C2FF;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 194, 255, 0.1);
+}
+
+.card {
+  background: #0b0f2a;
+  border: 1px solid rgba(0, 194, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 194, 255, 0.08);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 194, 255, 0.25);
+  transition: 0.25s ease;
+}
+
+footer {
+  background: linear-gradient(
+    135deg,
+    #050816 0%,
+    #02030d 50%,
+    #000000 100%
+  );
+}
+
+/* ===== NEXO: NAVBAR / HEADER ===== */
+
+header,
+.navbar,
+.header-container {
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 194, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 194, 255, 0.08);
+}
+
+/* ===== NEXO: NAV LINKS ===== */
+
+nav a,
+.nav-link {
+  color: #cfefff;
+  transition: color .2s ease, text-shadow .2s ease;
+}
+
+nav a:hover,
+.nav-link:hover {
+  color: #00C2FF;
+  text-shadow: 0 0 8px rgba(0,194,255,0.6);
+}
+
+nav a.active,
+.nav-link.active,
+nav a[aria-current="page"] {
+  color: #00C2FF;
+  text-shadow: 0 0 10px rgba(0,194,255,0.8);
+}
+
+/* ===== NEXO: TÍTULOS ===== */
+
+.section-title,
+.page-title,
+h2.section-title {
+  color: #e6f9ff;
+  text-shadow: 0 0 6px rgba(0,194,255,0.35);
+}
+
+/* ===== NEXO: ACCORDION ===== */
+
+.accordion .item {
+  background: #0b0f2a;
+  border: 1px solid rgba(0,194,255,0.12);
+  box-shadow: 0 6px 16px rgba(0,194,255,0.06);
+}
+
+.accordion .question {
+  color: #cfefff;
+  transition: color .2s ease, text-shadow .2s ease;
+}
+
+.accordion .item:hover {
+  border-color: rgba(0,194,255,0.3);
+  box-shadow: 0 0 16px rgba(0,194,255,0.18);
+}
+
+.accordion .item.active .question {
+  color: #00C2FF;
+  text-shadow: 0 0 8px rgba(0,194,255,0.6);
+}
+
+/* ===== NEXO: CTA OUTLINE ===== */
+
+.btn-outline,
+.btn-secondary {
+  border-color: rgba(0,194,255,0.35);
+  color: #00C2FF;
+  transition: box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.btn-outline:hover,
+.btn-secondary:hover {
+  background: rgba(0,194,255,0.12);
+  box-shadow: 0 0 14px rgba(0,194,255,0.35);
+}
+
+/* ===== NEXO HEADER OVERRIDE ===== */
+
+.site-header {
+  background: rgba(5, 8, 22, 0.75) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(0, 194, 255, 0.15) !important;
+  box-shadow: 0 4px 24px rgba(0, 194, 255, 0.08) !important;
+}
+
+.header-nav {
+  border: 1px solid rgba(0, 194, 255, 0.15) !important;
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.08) !important;
+  background: rgba(5, 8, 22, 0.55) !important;
+}
+
+.header-nav ul li a {
+  color: #cfefff !important;
+  transition: color 0.2s ease, text-shadow 0.2s ease !important;
+}
+
+.header-nav ul li a:hover {
+  color: #00C2FF !important;
+  text-shadow: 0 0 8px rgba(0,194,255,0.6) !important;
+}
+
+.header-nav ul li a.active,
+.header-nav ul li a[aria-current="page"] {
+  color: #00C2FF !important;
+  text-shadow: 0 0 10px rgba(0,194,255,0.8) !important;
+}
+
+/* ===== NEXO: NAV TYPOGRAPHY ===== */
+
+.site-header {
+  height: 78px !important; /* ✅ era 80px, agora bate com o Hero */
+}
+
+.header-nav ul li a {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.02em !important;
+  color: #cfefff !important;
+  transition: color .2s ease, text-shadow .2s ease !important;
+}
+
+.header-nav ul li a:hover {
+  color: #00C2FF !important;
+  text-shadow: 0 0 6px rgba(0,194,255,0.5) !important;
+}
+
+.header-nav ul li a.active,
+.header-nav ul li a[aria-current="page"] {
+  color: #00C2FF !important;
+  text-shadow: 0 0 8px rgba(0,194,255,0.7) !important;
+}
+
+/* ===== NEXO: USER DROPDOWN ===== */
+
+/* Ajuste o seletor abaixo se sua classe for diferente */
+.profile-dropdown,
+.user-dropdown,
+.account-dropdown,
+.menu-dropdown {
+  background: rgba(5, 8, 22, 0.75) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 194, 255, 0.15) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 28px rgba(0, 194, 255, 0.12) !important;
+}
+
+.profile-dropdown a,
+.user-dropdown a,
+.account-dropdown a,
+.menu-dropdown a {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  color: #cfefff !important;
+  transition: background .2s ease, color .2s ease, text-shadow .2s ease !important;
+}
+
+.profile-dropdown a:hover,
+.user-dropdown a:hover,
+.account-dropdown a:hover,
+.menu-dropdown a:hover {
+  background: rgba(0, 194, 255, 0.12) !important;
+  color: #00C2FF !important;
+  text-shadow: 0 0 6px rgba(0,194,255,0.6) !important;
+}
+
+.profile-dropdown hr,
+.user-dropdown hr,
+.account-dropdown hr,
+.menu-dropdown hr {
+  border-color: rgba(0, 194, 255, 0.08) !important;
+}
+
+/* ===== NEXO: USER TRIGGER ===== */
+/* Ajuste os seletores se sua classe for diferente */
+.header-actions .user-trigger,
+.header-actions .profile-trigger,
+.header-actions .account-trigger,
+.header-actions .user-menu-trigger {
+  background: rgba(5, 8, 22, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 194, 255, 0.15) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 0 rgba(0,194,255,0) !important;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.header-actions .user-trigger span,
+.header-actions .profile-trigger span,
+.header-actions .account-trigger span,
+.header-actions .user-menu-trigger span {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  color: #cfefff !important;
+}
+
+.header-actions .user-trigger .avatar,
+.header-actions .profile-trigger .avatar,
+.header-actions .account-trigger .avatar,
+.header-actions .user-menu-trigger .avatar {
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+  border: 1px solid rgba(0,194,255,0.35) !important;
+  box-shadow: 0 0 10px rgba(0,194,255,0.35) !important;
+}
+
+.header-actions .user-trigger:hover,
+.header-actions .profile-trigger:hover,
+.header-actions .account-trigger:hover,
+.header-actions .user-menu-trigger:hover {
+  background: rgba(0,194,255,0.08) !important;
+  border-color: rgba(0,194,255,0.35) !important;
+  box-shadow: 0 0 14px rgba(0,194,255,0.35) !important;
+}
+
+.header-actions .user-trigger.active,
+.header-actions .profile-trigger.active,
+.header-actions .account-trigger.active,
+.header-actions .user-menu-trigger.active {
+  background: rgba(0,194,255,0.12) !important;
+  border-color: rgba(0,194,255,0.55) !important;
+  box-shadow: 0 0 18px rgba(0,194,255,0.45) !important;
+}
+
+.profile-pill {
+  background: rgba(5, 8, 22, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+
+  border: 1px solid rgba(0, 194, 255, 0.15) !important;
+  border-radius: 999px !important;
+
+  box-shadow:
+    0 0 0 rgba(0,194,255,0),
+    inset 0 0 6px rgba(0,194,255,0.08) !important;
+
+  transition: all .25s ease !important;
+}
+
+.profile-pill span {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  color: #cfefff !important;
+  letter-spacing: 0.02em !important;
+}
+
+.profile-pill .avatar {
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+  border: 1px solid rgba(0,194,255,0.35) !important;
+  box-shadow: 0 0 8px rgba(0,194,255,0.35) !important;
+}
+
+.profile-pill:hover {
+  background: rgba(0,194,255,0.08) !important;
+  border-color: rgba(0,194,255,0.35) !important;
+  box-shadow:
+    0 0 14px rgba(0,194,255,0.35),
+    inset 0 0 6px rgba(0,194,255,0.15) !important;
+}
+
+.profile-pill.active {
+  background: rgba(0,194,255,0.12) !important;
+  border-color: rgba(0,194,255,0.55) !important;
+  box-shadow:
+    0 0 18px rgba(0,194,255,0.45),
+    inset 0 0 10px rgba(0,194,255,0.25) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill {
+  background: rgba(5, 8, 22, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+
+  border: 1px solid rgba(0, 194, 255, 0.25) !important;
+  border-radius: 999px !important;
+
+  box-shadow:
+    0 0 12px rgba(0,194,255,0.25),
+    inset 0 0 6px rgba(0,194,255,0.15) !important;
+
+  transition: all .25s ease !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill span {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  color: #cfefff !important;
+  letter-spacing: 0.02em !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill div:first-child {
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+  border: 1px solid rgba(0,194,255,0.35) !important;
+  box-shadow: 0 0 10px rgba(0,194,255,0.35) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill:hover {
+  background: rgba(0,194,255,0.08) !important;
+  border-color: rgba(0,194,255,0.45) !important;
+  box-shadow:
+    0 0 18px rgba(0,194,255,0.35),
+    inset 0 0 8px rgba(0,194,255,0.25) !important;
+}
+
+/* ===== NEXO: PROFILE FONT ===== */
+
+header .header-actions .profile-wrapper .profile-pill {
+  height: 48px !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill span {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.02em !important;
+  color: #cfefff !important;
+}
+
+/* ===== NEXO: LOGOUT DESTRUCTIVE ACTION ===== */
+
+/* Ajusta o item "Sair" no dropdown */
+.profile-dropdown a:last-child,
+.account-dropdown a:last-child,
+.menu-dropdown a:last-child {
+  color: #ff4d4f !important;
+  transition: background .2s ease, color .2s ease, text-shadow .2s ease !important;
+}
+
+.profile-dropdown a:last-child:hover,
+.account-dropdown a:last-child:hover,
+.menu-dropdown a:last-child:hover {
+  background: rgba(255,77,79,0.08) !important;
+  color: #ff4d4f !important;
+  text-shadow: 0 0 6px rgba(255,77,79,0.45) !important;
+}
+
+/* ===== NEXO: DUAL RING AVATAR ===== */
+
+header .header-actions .profile-wrapper .profile-pill div:first-child {
+
+  /* Avatar interno */
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+
+  /* Ring externo */
+  border: 2px solid rgba(0,194,255,0.35) !important;
+
+  /* Halo / Glow */
+  box-shadow:
+    0 0 8px rgba(0,194,255,0.4),
+    0 0 16px rgba(0,194,255,0.2) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill .profile-avatar {
+
+  /* Avatar interno */
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+
+  /* Ring externo */
+  border: 2px solid rgba(0,194,255,0.35) !important;
+
+  /* Halo Glow */
+  box-shadow:
+    0 0 8px rgba(0,194,255,0.4),
+    0 0 16px rgba(0,194,255,0.2) !important;
+
+}
+
+header .header-actions .profile-wrapper .profile-pill .profile-arrow {
+
+  color: rgba(0,194,255,0.7) !important;
+  transition: all .2s ease !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill:hover .profile-arrow {
+
+  color: #00C2FF !important;
+  text-shadow: 0 0 6px rgba(0,194,255,0.6) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill [class*="profile-avatar"] {
+
+  background: radial-gradient(circle at 30% 30%, #00C2FF, #007BFF) !important;
+
+  border: 2px solid rgba(0,194,255,0.35) !important;
+
+  box-shadow:
+    0 0 8px rgba(0,194,255,0.4),
+    0 0 16px rgba(0,194,255,0.2) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill [class*="profile-arrow"] {
+
+  color: rgba(0,194,255,0.7) !important;
+  transition: all .2s ease !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill:hover [class*="profile-arrow"] {
+
+  color: #00C2FF !important;
+  text-shadow: 0 0 6px rgba(0,194,255,0.6) !important;
+}
+
+header .header-actions .profile-wrapper .profile-pill [class*="profile-avatar"] {
+
+  filter: drop-shadow(0 0 8px rgba(0,194,255,0.6))
+          drop-shadow(0 0 16px rgba(0,194,255,0.3)) !important;
+
+  outline: 2px solid rgba(0,194,255,0.35) !important;
+
+  outline-offset: 2px !important;
+}
+
+.profile-dropdown .logout-item {
+  color: #ff4d4f !important;
+  transition: all 0.2s ease;
+}
+
+.profile-dropdown .logout-item:hover {
+  background: rgba(255,77,79,0.08) !important;
+  color: #ff4d4f !important;
+  text-shadow: 0 0 6px rgba(255,77,79,0.45) !important;
+}
+
+/* ==========================================
+   NEXO MIDIAS — NAVBAR LOGO FIX
+========================================== */
+
+.site-header .header-inner {
+  height: 100% !important;
+}
+
+.site-header .header-logo {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.site-header .header-logo a {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.site-header .header-logo img {
+  height: 40px !important;
+  width: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+
+  filter:
+    drop-shadow(0 0 6px rgba(0,194,255,0.35))
+    drop-shadow(0 0 16px rgba(0,194,255,0.15));
+}
+
+/* =====================================================
+   NEXO RIPPLE EFFECT (GLOBAL - CORRIGIDO)
+===================================================== */
+
+.btn-primary,
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.btn-outline::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(42, 200, 255, 0.35) 0%,
+    rgba(42, 200, 255, 0.15) 40%,
+    rgba(42, 200, 255, 0) 70%
+  );
+
+  mix-blend-mode: screen;
+
+  transition:
+    transform 0.45s ease,
+    opacity 0.6s ease;
+}
+
+/* ATIVA AO CLICAR */
+
+.btn-primary:active::after,
+.btn-outline:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* =====================================================
+   NEXO CTA HOVER OVERRIDE (REMOVE RED)
+===================================================== */
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: linear-gradient(
+    135deg,
+    #0A1E5E 0%,
+    #179BFF 60%,
+    #2AC8FF 100%
+  ) !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 20px rgba(23,155,255,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+
+  filter: brightness(1.05);
+}
+/* ========================================== 
+   PRODUCT CONTEXT BRIDGE (LIGHT → DARK)
+   WHYLICENSE → UGCSECTION
+========================================== */
+
+.why-license::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 180px;
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.45) 35%,
+    rgba(255,255,255,0.85) 70%,
+    #050816 100%
+  );
+}
+
+.why-license::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 38px;
+  transform: translateX(-50%);
+  width: min(880px, 70vw);
+  height: 120px;
+  pointer-events: none;
+  z-index: 2;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(42,200,255,0.35) 0%,
+    rgba(42,200,255,0.12) 35%,
+    rgba(42,200,255,0.04) 55%,
+    transparent 75%
+  );
+
+  filter: blur(38px);
+}
+body{
+  font-family: "Inter", sans-serif;
+}

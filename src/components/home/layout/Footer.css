@@ -1,0 +1,210 @@
+/* =====================================================
+   FOOTER — NEXO MIDIAS (FIXED DOM MEDIA STYLE)
+===================================================== */
+
+.site-footer {
+  background: linear-gradient(
+    180deg,
+    #050816 0%,
+    #060a1e 40%,
+    #070c22 100%
+  );
+  color: rgba(255,255,255,0.7);
+  padding: 80px 24px 32px;
+}
+
+/* CONTAINER */
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 64px;
+}
+
+/* ===============================
+   BRAND
+================================ */
+
+.footer-brand {
+  position: relative;
+  min-height: 80px;
+}
+
+/* LOGO FLOATING (DOM STYLE) */
+
+.footer-logo {
+  position: absolute;
+  top: -20px;
+  left: 0;
+
+  width: 200px;
+  height: auto;
+
+  pointer-events: none;
+
+  filter:
+    brightness(1.05)
+    contrast(1.1)
+    drop-shadow(0 0 10px rgba(42,200,255,0.35));
+}
+
+/* ADDRESS */
+
+.footer-address {
+  margin-top: 70px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+/* LINKS / HELP */
+
+.footer-links h4,
+.footer-help h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+
+  background: linear-gradient(
+    90deg,
+    #179BFF 0%,
+    #2AC8FF 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-links ul,
+.footer-help ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li,
+.footer-help li {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.footer-links li:hover,
+.footer-help li:hover {
+  color: #2AC8FF;
+}
+
+/* BOTTOM */
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 48px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(42,200,255,0.12);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ================================
+   DOM MEDIA FLOATING LOGO EFFECT
+================================ */
+
+.footer-brand {
+  position: relative;
+  padding-top: 70px;
+}
+
+.footer-logo {
+  position: absolute;
+  top: -65px;
+  left: 0;
+  width: 210px;
+  height: auto;
+  z-index: 5;
+
+  filter:
+    brightness(1.05)
+    contrast(1.1)
+    drop-shadow(0 0 12px rgba(42,200,255,0.45));
+
+  transition: 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: translateY(-2px);
+  filter:
+    brightness(1.15)
+    contrast(1.2)
+    drop-shadow(0 0 18px rgba(42,200,255,0.65));
+}
+
+.footer-address {
+  position: relative;
+  z-index: 1;
+  margin-top: 12px;
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 1024px) {
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .site-footer {
+    padding: 70px 20px 28px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    padding-top: 0;
+  }
+
+  .footer-logo {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto 12px;
+    display: block;
+  }
+
+  .footer-address {
+    margin-top: 0;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .site-footer {
+    padding: 60px 18px 24px;
+  }
+
+  .footer-links ul,
+  .footer-help ul {
+    gap: 8px;
+  }
+
+}

@@ -1,0 +1,291 @@
+.recovery-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.recovery-card {
+  width: 420px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.recovery-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.recovery-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.recovery-card input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.recovery-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  background: #c51b2e;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.recovery-card button:hover {
+  background: #a81727;
+}
+
+.error-text {
+  font-size: 13px;
+  color: #e11d2e;
+  margin-bottom: 10px;
+}
+
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal {
+  width: 380px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.success-modal h3 {
+  margin-bottom: 10px;
+}
+
+.success-modal button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* =====================================================
+   RECOVERY PAGE — NEXO MIDIAS UI
+   (DOM MEDIA STRUCTURE SAFE)
+===================================================== */
+
+.recovery-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      1200px 600px at top center,
+      #071033 0%,
+      #050816 45%,
+      #02030a 100%
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.recovery-card {
+  width: 420px;
+
+  padding: 40px;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(42,200,255,0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 40px rgba(23,155,255,0.08),
+    0 30px 80px rgba(0,0,0,0.45);
+}
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.recovery-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #eaf4ff;
+}
+
+.recovery-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 25px;
+}
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.recovery-card input {
+  width: 100%;
+
+  border-radius: 12px;
+  border: 1px solid rgba(42,200,255,0.12);
+
+  padding: 12px 14px;
+  margin-bottom: 20px;
+
+  font-size: 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.01)
+    );
+
+  color: #ffffff;
+
+  transition:
+    border 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.recovery-card input:focus {
+  outline: none;
+
+  border: 1px solid rgba(42,200,255,0.4);
+
+  box-shadow:
+    0 0 0 2px rgba(42,200,255,0.08),
+    0 0 12px rgba(42,200,255,0.15);
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.recovery-card button {
+  width: 100%;
+  padding: 14px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0A1E5E 0%,
+      #179BFF 60%,
+      #2AC8FF 100%
+    );
+
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.recovery-card button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(23,155,255,0.35),
+    0 0 10px rgba(42,200,255,0.25);
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-text {
+  font-size: 13px;
+  color: #ff4b6e;
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   SUCCESS MODAL
+===================================================== */
+
+.success-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(5, 8, 22, 0.75);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-modal {
+  width: 380px;
+  padding: 35px;
+  border-radius: 18px;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(42,200,255,0.15);
+
+  box-shadow:
+    0 0 40px rgba(23,155,255,0.08),
+    0 30px 80px rgba(0,0,0,0.45);
+}
+
+.success-modal h3 {
+  margin-bottom: 10px;
+  color: #eaf4ff;
+}
+
+.success-modal button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: #2AC8FF;
+  cursor: pointer;
+}

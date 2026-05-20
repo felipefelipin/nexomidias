@@ -1,0 +1,607 @@
+/* =====================================================
+   LOGIN PAGE — NEXO MIDIAS
+===================================================== */
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(900px 520px at 20% 12%, rgba(42, 200, 255, 0.10), transparent 60%),
+    radial-gradient(800px 520px at 85% 100%, rgba(0, 132, 255, 0.08), transparent 62%),
+    linear-gradient(180deg, #050816 0%, #060a1e 58%, #070c22 100%);
+}
+
+/* =====================================================
+   LADO ESQUERDO — VISUAL / BRAND
+===================================================== */
+
+.login-left {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(5, 10, 20, 0.56) 0%,
+      rgba(5, 10, 20, 0.44) 42%,
+      rgba(5, 10, 20, 0.30) 100%
+    ),
+    url("/auth-login-bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: brightness(1.08) contrast(1.05) saturate(1.08);
+}
+
+.login-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.36) 40%,
+      rgba(0, 0, 0, 0.18) 62%,
+      rgba(0, 0, 0, 0.08) 80%,
+      transparent 100%
+    ),
+    radial-gradient(1200px 700px at 50% 40%, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34) 70%);
+}
+
+.login-left::after {
+  content: "";
+  position: absolute;
+  inset: -2%;
+  z-index: 2;
+  pointer-events: none;
+
+  background: url("/auth-login-fx.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  filter: saturate(1.05) contrast(1.02) blur(0.2px);
+}
+
+.login-left * {
+  position: relative;
+  z-index: 3;
+}
+
+/* =====================================================
+   BRAND CONTENT
+===================================================== */
+
+.login-brand {
+  width: min(100%, 520px);
+  padding: 40px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.login-brand h1 {
+  margin: 0 0 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+
+  color: rgba(255, 255, 255, 0.96);
+
+  text-shadow:
+    0 0 24px rgba(42, 200, 255, 0.10),
+    0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+.login-brand p {
+  max-width: 34ch;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* =====================================================
+   LADO DIREITO — FORM AREA
+===================================================== */
+
+.login-right {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 56px;
+
+  background:
+    radial-gradient(900px 600px at 20% 30%, rgba(42, 200, 255, 0.08), transparent 60%),
+    linear-gradient(180deg, #060b18 0%, #081427 50%, #0a1833 100%);
+}
+
+.login-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(520px 280px at 50% 0%, rgba(42, 200, 255, 0.06), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%);
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  padding: 34px 30px 28px;
+
+  border-radius: 22px;
+  border: 1px solid rgba(42, 200, 255, 0.12);
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(23, 155, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: loginEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.login-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
+    radial-gradient(420px 160px at 50% 0%, rgba(42, 200, 255, 0.05), transparent 65%);
+}
+
+@keyframes loginEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.login-card h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 10px;
+  text-align: center;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.login-card h2::after {
+  content: "Entre para acessar sua conta, acompanhar seus dados e continuar sua jornada com a NEXO MIDIAS.";
+  display: block;
+  margin: 12px auto 0;
+  max-width: 34ch;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: normal;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.66);
+  text-shadow: none;
+}
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.login-tabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.login-tabs button {
+  flex: 1;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.login-tabs button.active {
+  color: #2AC8FF;
+  border-bottom-color: #2AC8FF;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.login-card form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-card input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(42, 200, 255, 0.12);
+  outline: none;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  color: rgba(255, 255, 255, 0.94);
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02),
+    0 10px 24px rgba(0, 0, 0, 0.10);
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease;
+}
+
+.login-card input::placeholder {
+  color: rgba(255, 255, 255, 0.40);
+}
+
+.login-card input:focus {
+  border-color: #2AC8FF;
+  box-shadow:
+    0 0 0 2px rgba(42, 200, 255, 0.16),
+    0 14px 32px rgba(0, 0, 0, 0.16),
+    0 0 24px rgba(42, 200, 255, 0.06);
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02));
+}
+
+/* =====================================================
+   FORGOT
+===================================================== */
+
+.login-forgot {
+  text-align: right;
+  font-size: 12px;
+  margin: -2px 0 0;
+}
+
+.login-forgot a {
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.login-forgot a:hover {
+  color: #2AC8FF;
+}
+
+/* =====================================================
+   ERRO
+===================================================== */
+
+.login-error {
+  margin: -2px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(225, 29, 46, 0.22);
+  background: rgba(225, 29, 46, 0.08);
+
+  color: #ff8e99;
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: left;
+}
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.login-card button[type="submit"] {
+  width: 100%;
+  height: 52px;
+  margin-top: 4px;
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #0A1E5E 0%,
+    #179BFF 60%,
+    #2AC8FF 100%
+  );
+
+  box-shadow:
+    0 2px 8px rgba(23, 155, 255, 0.25),
+    0 12px 34px rgba(23, 155, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.login-card button[type="submit"]:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 20px rgba(23, 155, 255, 0.35),
+    0 16px 40px rgba(23, 155, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+.login-card button[type="submit"]:active {
+  transform: scale(0.985);
+}
+
+.login-card button[type="submit"]:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.login-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  text-align: center;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.login-footer a {
+  color: #2AC8FF;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+  color: #7bddff;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   PARALLAX
+===================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .login-left {
+    animation: nxAuthParallax 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes nxAuthParallax {
+    0% { background-position: 45% 50%; }
+    100% { background-position: 60% 40%; }
+  }
+
+  .login-left::after {
+    animation: nxAuthFxParallax 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes nxAuthFxParallax {
+    0% { transform: translate3d(0, 0, 0) scale(1.02); }
+    100% { transform: translate3d(-1.2%, -0.8%, 0) scale(1.04); }
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    padding: 110px 22px 48px;
+  }
+
+  .login-card {
+    max-width: 460px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .login-right {
+    padding: 96px 16px 40px;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 26px 18px 22px;
+    border-radius: 20px;
+  }
+
+  .login-card h2 {
+    font-size: 28px;
+  }
+
+  .login-card h2::after {
+    font-size: 13.5px;
+    margin-top: 10px;
+  }
+
+  .login-tabs {
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login-tabs button {
+    font-size: 12.5px;
+    padding: 10px;
+  }
+
+  .login-card form {
+    gap: 12px;
+  }
+
+  .login-card input {
+    height: 50px;
+    font-size: 16px;
+    border-radius: 13px;
+  }
+
+  .login-card button[type="submit"] {
+    height: 50px;
+    border-radius: 999px;
+    font-size: 13.8px;
+  }
+
+  .login-footer {
+    font-size: 13.5px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+  .login-right {
+    padding: 90px 12px 32px;
+  }
+
+  .login-card {
+    padding: 22px 14px 18px;
+    border-radius: 18px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
+    letter-spacing: -0.045em;
+  }
+
+  .login-card h2::after {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .login-tabs {
+    gap: 10px;
+  }
+
+  .login-tabs button {
+    font-size: 12px;
+    padding: 10px 6px;
+  }
+
+  .login-card input {
+    height: 48px;
+    padding: 0 14px;
+    font-size: 16px;
+  }
+
+  .login-card button[type="submit"] {
+    height: 48px;
+    font-size: 13.5px;
+  }
+
+  .login-footer {
+    font-size: 13px;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-card,
+  .login-card input,
+  .login-card button[type="submit"],
+  .login-footer a,
+  .login-left,
+  .login-left::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

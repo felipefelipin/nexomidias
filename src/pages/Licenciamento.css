@@ -1,0 +1,464 @@
+/* =====================================================
+  LICENCIAMENTO — NEXO MIDIAS
+===================================================== */
+
+.licenciamento{
+  position: relative;
+  padding: clamp(80px, 7vw, 120px) 0;
+  overflow: hidden;
+
+  background:
+    radial-gradient(900px 520px at 65% 10%, rgba(42,200,255,0.10), transparent 60%),
+    radial-gradient(900px 520px at 20% 110%, rgba(0,132,255,0.08), transparent 62%),
+    linear-gradient(180deg, #050816 0%, #060a1e 60%, #070c22 100%);
+}
+
+.licenciamento::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(650px 420px at 48% 30%, rgba(42,200,255,0.08), transparent 62%),
+    radial-gradient(620px 420px at 75% 65%, rgba(0,132,255,0.06), transparent 65%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%);
+}
+
+/* =====================================================
+  GRID
+===================================================== */
+
+.licenciamento__container{
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(380px, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 40px;
+  row-gap: 22px;
+  align-items: stretch;
+}
+
+.licenciamento__top{
+  display: contents;
+}
+
+.licenciamento__grid{
+  display: contents;
+}
+
+/* =====================================================
+  TITLE
+===================================================== */
+
+.licenciamento__title{
+  grid-column: 2;
+  grid-row: 1;
+
+  text-align: center;
+  margin: 0;
+
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  white-space: nowrap;
+
+  color: rgba(255,255,255,0.94);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.licenciamento__title::after{
+  content:"";
+  display:block;
+  width:100%;
+  height:1px;
+  margin:14px auto 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.12),
+    rgba(42,200,255,0.12),
+    rgba(255,255,255,0.12),
+    transparent
+  );
+}
+
+/* =====================================================
+  IMAGE
+===================================================== */
+
+.licenciamento__art{
+  grid-column:1;
+  grid-row:1 / span 2;
+
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+
+  display:flex;
+  background:rgba(255,255,255,0.015);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 34px 90px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(42,200,255,0.06);
+}
+
+.licenciamento__art::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(680px 520px at 45% 35%, rgba(42,200,255,0.10), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 35%),
+    linear-gradient(90deg, rgba(5,8,22,0.35), transparent 22%, transparent 78%, rgba(5,8,22,0.28));
+}
+
+.licenciamento__artImage{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  transform:scale(.97);
+  transition:transform .6s ease, filter .6s ease;
+
+  filter:
+    saturate(1.05)
+    contrast(1.03);
+}
+
+.licenciamento__art:hover .licenciamento__artImage{
+  transform:scale(1.06);
+  filter:
+    brightness(1.04)
+    saturate(1.08)
+    contrast(1.06);
+}
+
+/* =====================================================
+  TEXT
+===================================================== */
+
+.licenciamento__text{
+  grid-column:2;
+  grid-row:2;
+
+  color:rgba(255,255,255,0.78);
+  font-size:14.2px;
+  line-height:1.85;
+}
+
+.licenciamento__text p{
+  margin:0 0 14px;
+  max-width:70ch;
+}
+
+.licenciamento__text strong{
+  color:#2AC8FF;
+  font-weight:850;
+
+  text-shadow:0 0 18px rgba(42,200,255,0.14);
+}
+
+.licenciamento__subtitle{
+  margin:22px 0 10px;
+  font-size:16px;
+  font-weight:900;
+
+  color:rgba(255,255,255,0.92);
+}
+
+/* =====================================================
+  EMAIL CTA
+===================================================== */
+
+.licenciamento__link{
+  display:inline-flex;
+  align-items:center;
+
+  margin-top:12px;
+  padding:10px 12px;
+
+  border-radius:12px;
+
+  font-weight:900;
+  font-size:13.5px;
+
+  color:#0b1224;
+
+  background:linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #d7f3ff 35%,
+    #9ee7ff 100%
+  );
+
+  border:1px solid rgba(255,255,255,0.55);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    0 18px 54px rgba(0,0,0,0.50);
+
+  transition:.2s;
+}
+
+.licenciamento__link:hover{
+  transform:translateY(-2px);
+}
+
+/* =====================================================
+  RESPONSIVE
+===================================================== */
+
+@media (max-width:980px){
+
+  .licenciamento__container{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto;
+    row-gap:18px;
+  }
+
+  .licenciamento__title{
+    grid-column:1;
+    grid-row:1;
+    font-size:clamp(24px, 5vw, 30px);
+    white-space: nowrap;
+  }
+
+  .licenciamento__art{
+    grid-column:1;
+    grid-row:2;
+    min-height:360px;
+  }
+
+  .licenciamento__text{
+    grid-column:1;
+    grid-row:3;
+    font-size:14.8px;
+  }
+}
+
+/* =====================================================
+  MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+  .licenciamento{
+    padding:110px 0 80px;
+  }
+
+  .licenciamento__container{
+    padding:0 20px;
+  }
+
+  .licenciamento__title{
+    font-size:clamp(20px, 5.2vw, 26px);
+    line-height:1.1;
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+  }
+
+  .licenciamento__art{
+    min-height:300px;
+    border-radius:18px;
+  }
+
+  .licenciamento__art::before{
+    background:
+      radial-gradient(680px 520px at 45% 35%, rgba(42,200,255,0.16), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,0.05), transparent 35%),
+      linear-gradient(90deg, rgba(5,8,22,0.28), transparent 22%, transparent 78%, rgba(5,8,22,0.22));
+  }
+
+  .licenciamento__artImage{
+    transform:scale(1.02);
+
+    filter:
+      saturate(1.08)
+      contrast(1.05)
+      brightness(1.02)
+      drop-shadow(0 0 18px rgba(42,200,255,0.18))
+      drop-shadow(0 0 48px rgba(23,155,255,0.12));
+  }
+
+  .licenciamento__text{
+    font-size:14px;
+  }
+}
+
+/* =====================================================
+  SMALL MOBILE
+===================================================== */
+
+@media (max-width:480px){
+
+  .licenciamento{
+    padding:96px 0 72px;
+  }
+
+  .licenciamento__container{
+    padding:0 16px;
+  }
+
+  .licenciamento__title{
+    font-size:18px;
+    line-height:1.1;
+    white-space: nowrap;
+    letter-spacing:-0.05em;
+  }
+
+  .licenciamento__art{
+    min-height:250px;
+    border-radius:16px;
+  }
+
+  .licenciamento__art::before{
+    background:
+      radial-gradient(560px 420px at 50% 34%, rgba(42,200,255,0.18), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,0.05), transparent 35%),
+      linear-gradient(90deg, rgba(5,8,22,0.24), transparent 22%, transparent 78%, rgba(5,8,22,0.20));
+  }
+
+  .licenciamento__artImage{
+    transform:scale(1.04);
+
+    filter:
+      saturate(1.08)
+      contrast(1.05)
+      brightness(1.03)
+      drop-shadow(0 0 20px rgba(42,200,255,0.22))
+      drop-shadow(0 0 56px rgba(23,155,255,0.14));
+  }
+
+  .licenciamento__text{
+    font-size:13.5px;
+  }
+
+  .licenciamento__link{
+    width:100%;
+    justify-content:center;
+  }
+}
+/* =====================================================
+  CINEMATIC PORTAL EFFECT — NEXO MIDIAS
+===================================================== */
+
+.licenciamento__art{
+  position:relative;
+  isolation:isolate;
+}
+
+/* AURA NEON */
+
+.licenciamento__art::after{
+  content:"";
+  position:absolute;
+  inset:-25%;
+  z-index:-1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(42,200,255,0.45) 0%,
+      rgba(23,155,255,0.25) 35%,
+      rgba(0,0,0,0) 70%
+    );
+
+  filter:blur(60px);
+  opacity:.7;
+
+  animation:nexoAura 7s ease-in-out infinite;
+}
+
+/* SCANLINE TECH OVERLAY */
+
+.licenciamento__art::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  mix-blend-mode:overlay;
+  opacity:.35;
+}
+
+/* FLOATING IMAGE */
+
+.licenciamento__artImage{
+  animation:nexoFloat 10s ease-in-out infinite;
+}
+
+/* AURA PULSE */
+
+@keyframes nexoAura{
+
+  0%{
+    transform:scale(1);
+    opacity:.6;
+  }
+
+  50%{
+    transform:scale(1.08);
+    opacity:.95;
+  }
+
+  100%{
+    transform:scale(1);
+    opacity:.6;
+  }
+
+}
+
+/* FLOATING MOTION */
+
+@keyframes nexoFloat{
+
+  0%{
+    transform:translateY(0) scale(1.03);
+  }
+
+  50%{
+    transform:translateY(-8px) scale(1.05);
+  }
+
+  100%{
+    transform:translateY(0) scale(1.03);
+  }
+
+}
+
+/* HOVER POWER */
+
+.licenciamento__art:hover::after{
+  opacity:1;
+  filter:blur(75px);
+}
+
+/* MOBILE PERFORMANCE */
+
+@media (max-width:768px){
+
+  .licenciamento__art::after{
+    filter:blur(40px);
+    opacity:.75;
+  }
+
+}
