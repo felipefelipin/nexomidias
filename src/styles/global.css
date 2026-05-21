@@ -9,8 +9,7 @@
 
 html {
   width: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -59,19 +58,9 @@ body {
    ESTRUTURA PRINCIPAL
 ===================================================== */
 main {
-  /* ✅ IMPORTANTE:
-     O HERO já compensa o header (margin-top:-78 / padding-top:156),
-     então o main NÃO pode empurrar mais 78px.
-  */
   padding-top: 0;
-
-  /* ✅ não imponha fundo branco no layout inteiro */
   background: transparent;
-
-  /* ✅ mantém layout estável sem cortar o Hero/mosaico */
   position: relative;
-  overflow-x: hidden;
-  overflow-y: visible;
 }
 
 /* =====================================================

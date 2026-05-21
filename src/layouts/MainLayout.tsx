@@ -16,7 +16,6 @@ function MainLayout({ children }: Props) {
         style={{
           minHeight: 'calc(100vh - 78px)',
           width: '100%',
-          overflowX: 'hidden',
         }}
       >
         {children}

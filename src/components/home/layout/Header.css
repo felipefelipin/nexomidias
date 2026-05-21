@@ -25,18 +25,18 @@ body.menu-open {
     inset 0 1px 0 rgba(255, 255, 255, 0.02);
 
   transition:
-    transform 0.35s ease,
+    top 0.35s ease,
     opacity 0.35s ease,
     background 0.25s ease;
 }
 
 .site-header.visible {
-  transform: translateY(0);
+  top: 0;
   opacity: 1;
 }
 
 .site-header.hidden {
-  transform: translateY(-100%);
+  top: -100px;
   opacity: 0;
 }
 
