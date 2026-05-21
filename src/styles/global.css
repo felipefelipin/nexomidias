@@ -9,19 +9,16 @@
 
 html {
   width: 100%;
-  /* FORÇA SCROLLBAR SEMPRE — elimina “pulo” lateral */
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body {
   width: 100%;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #ffffff;
+  background: #050816;
   color: var(--dm-text-dark);
   line-height: 1.6;
-
-  /* CRÍTICO */
-  overflow-x: hidden;
 }
 
 /* =====================================================
