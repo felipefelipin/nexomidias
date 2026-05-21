@@ -5,7 +5,6 @@ import WhyChoose from '../components/home/WhyChoose'
 import WhyLicense from '../components/home/WhyLicense'
 import UgcSection from '../components/home/UgcSection'
 import FaqSection from '../components/home/FaqSection'
-import ScrollReveal from '../components/ScrollReveal'
 
 function Home() {
   const location = useLocation()
@@ -25,17 +24,11 @@ function Home() {
     <>
       <HeroSection />
       <WhyChoose />
-      <ScrollReveal delay={100}>
-        <WhyLicense />
-      </ScrollReveal>
-      <ScrollReveal delay={100}>
-        <UgcSection />
-      </ScrollReveal>
-      <ScrollReveal delay={100}>
-        <div id="faq">
-          <FaqSection />
-        </div>
-      </ScrollReveal>
+      <WhyLicense />
+      <UgcSection />
+      <div id="faq">
+        <FaqSection />
+      </div>
     </>
   )
 }
